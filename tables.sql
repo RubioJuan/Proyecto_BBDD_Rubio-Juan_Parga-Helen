@@ -31,6 +31,8 @@ create table parques(
     foreign key(id_departamento)references departamento(id_departamento)
 );
 
+-- drop database proyecto;
+
 create table area (
 	id_area INT primary key not null,
     nombre VARCHAR(100)not null,
@@ -52,7 +54,8 @@ create table empleado(
 );
 
 create table entradas(
-	id_entradas INT primary key not null,
+	id_entradas INT primary key not null,  
+    nombre VARCHAR(255),
     id_parque INT not null,
     foreign key(id_parque)references parques(id_parque)
 );
