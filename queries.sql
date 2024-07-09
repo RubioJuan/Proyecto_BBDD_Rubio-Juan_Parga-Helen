@@ -158,9 +158,9 @@ join
 -- 13.Especies y sus investigadores principales:
 
 select 
-    e.denominacion_cientifica AS especie,
+    e.denominacion_cientifica as especie,
     i.id_personal_investigador,
-    emp.nombre AS investigador
+    emp.nombre as investigador
 from 
     especie e
 join 
@@ -169,3 +169,118 @@ join
     personal_investigador pi on i.id_personal_investigador = pi.id_personal_investigador
 join 
     empleado emp on pi.id_empleado = emp.id_empleado;
+
+-- 14. Un visitante desea visualizar que parques estan disponibles y los alojamientos, y que tipo de alojamiento es
+
+select 
+    p.nombre as Parque,
+    a.id_alojamiento as ID_Alojamiento,
+    a.capacidad as Capacidad_Alojamiento,
+    a.categoria as Tipo_Alojamiento
+from
+    parques p
+join 
+    alojamiento a on p.id_parque = a.id_parque;
+
+-- 15. Listado de todos los empleados y su tipo (gestión, vigilancia, conservación, investigación)
+
+select 
+    e.nombre as empleado,
+    case 
+        when pg.id_empleado is not null then 'Gestión'
+        when pv.id_empleado is not null then 'Vigilancia'
+        when pc.id_empleado is not null then 'Conservación'
+        when pi.id_empleado is not null then 'Investigación'
+    end as tipo
+from 
+    empleado e
+left join 
+    personal_gestion pg on e.id_empleado = pg.id_empleado
+left join 
+    personal_vigilancia pv on e.id_empleado = pv.id_empleado
+left join 
+    personal_conservacion pc on e.id_empleado = pc.id_empleado
+left join 
+    personal_investigador pi on e.id_empleado = pi.id_empleado;
+
+-- 16. Número de visitantes que se alojan en cada parque.
+
+select 
+    p.nombre as parque,
+    count(v.id_visitantes) as numero_visitantes
+from 
+    parques p
+join 
+    alojamiento a on p.id_parque = a.id_parque
+join 
+    visitantes v on a.id_alojamiento = v.id_alojamiento
+group by 
+    p.nombre;
+
+-- 17. Áreas con mayor cantidad de especies registradas.
+
+select 
+    a.nombre as area,
+    count(e.id_especie) as numero_especies
+from 
+    area a
+join 
+    especie e on a.id_area = e.id_area
+group by 
+    a.nombre
+order by 
+    numero_especies desc;
+    
+-- 18. Presupuesto total asignado a cada especie investigada.
+
+select 
+    e.denominacion_cientifica as especie,
+    sum(p.presupuesto) as presupuesto_total
+from 
+    especie e
+join 
+    investigacion i on e.id_especie = i.id_especie
+join 
+    proyecto p on i.id_proyecto = p.id_proyecto
+group by 
+    e.denominacion_cientifica;
+
+-- 19. Número total de entradas gestionadas por cada parque.
+
+select 
+    p.nombre as parque,
+    count(en.id_entradas) as total_entradas
+from 
+    parques p
+join 
+    entradas en on p.id_parque = en.id_parque
+group by 
+    p.nombre;
+    
+-- 20. Visitantes alojados en cada categoría de alojamiento.
+
+select 
+    a.categoria as tipo_alojamiento,
+    count(v.id_visitantes) as numero_visitantes
+from 
+    alojamiento a
+join 
+    visitantes v on a.id_alojamiento = v.id_alojamiento
+group by 
+    a.categoria;
+
+-- 21.Parques con mayor número de especies registradas.
+
+select 
+    p.nombre as parque,
+    count(e.id_especie) as numero_especies
+from 
+    parques p
+join 
+    area a on p.id_parque = a.id_parque
+join 
+    especie e on a.id_area = e.id_area
+group by 
+    p.nombre
+order by 
+    numero_especies desc;
