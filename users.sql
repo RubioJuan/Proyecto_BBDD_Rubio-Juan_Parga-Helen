@@ -4,19 +4,28 @@
 
 use proyecto;
 
+-- ************************************* ENTIDAD RESPONSABLE *********************************
+
+create user 'entidad_responsable'@'%' identified by 'er123';
+
+grant select on proyecto.parques to 'entidad_responsable'@'%';
+
 -- **************************************** PERSONAL GESTIÓN *********************************
 
 create user 'personal_gestion'@'%' identified by 'pg123';
-
-grant select, insert on proyecto.parques to 'personal_gestion'@'%';
+-- drop user 'personal_gestion'@'%';
 
 grant select, insert on proyecto.visitantes to 'personal_gestion'@'%';
+
+grant select, insert on proyecto.entradas to 'personal_gestion'@'%';
 
 -- **************************************** PERSONAL VIGILANCIA ******************************
 
 create user 'personal_vigilancia'@'%' identified by 'pv123';
 
 grant select on proyecto.area to 'personal_vigilancia'@'%';
+
+grant select on proyecto.vehiculo to 'personal_vigilancia'@'%';
 
 -- **************************************** PERSONAL CONSERVACIÓN ****************************
 
@@ -27,8 +36,8 @@ grant select on proyecto.area to 'personal_conservacion'@'%';
 -- **************************************** PERSONAL INVESTIGACIÓN ***************************
 
 create user 'personal_investigacion'@'%' identified by 'pi123';
-
-grant select, insert, update on proyecto.especie to 'personal_investigacion'@'%';
+-- drop user 'investigacion'@'%';
+grant select, insert, update on proyecto.investigacion to 'personal_investigacion'@'%';
 
 grant select, insert, update on proyecto.proyecto to 'personal_investigacion'@'%';
 
