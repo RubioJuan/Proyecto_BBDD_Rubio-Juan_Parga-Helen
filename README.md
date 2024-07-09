@@ -21,6 +21,8 @@ El Ministerio del Medio Ambiente ha decidido crear un Software que permita manej
 * Visual Studio Code
 * Mockaroo
 * Terminal de Ubuntu
+* Draw.io
+* Word 
 
 **Link de la Documentacion:** 
 
