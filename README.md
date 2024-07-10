@@ -1,5 +1,7 @@
 # Proyecto de MySQL
 
+<img src="./IMG/proyecto.png" >
+
 ### Integrantes:
 
 #### 1- Juan Felipe Rubio Sanabria
@@ -27,4 +29,8 @@ El Ministerio del Medio Ambiente ha decidido crear un Software que permita manej
 **Link de la Documentación:** 
 
     https://docs.google.com/document/d/1c7BxR7MGwgwZRt1kDAwcysbYwMODr-3E/edit?usp=sharing&ouid=108728451955626230726&rtpof=true&sd=true
+
     
+**Link de la presentación:**
+
+    https://www.canva.com/design/DAGKk8CbJRg/TQQ0eYQ2xCjy1z-P_A5bSw/edit?utm_content=DAGKk8CbJRg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
