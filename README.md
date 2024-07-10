@@ -24,7 +24,7 @@ El Ministerio del Medio Ambiente ha decidido crear un Software que permita manej
 * Draw.io
 * Word 
 
-**Link de la Documentacion:** 
+**Link de la Documentación:** 
 
     https://docs.google.com/document/d/1c7BxR7MGwgwZRt1kDAwcysbYwMODr-3E/edit?usp=sharing&ouid=108728451955626230726&rtpof=true&sd=true
     
